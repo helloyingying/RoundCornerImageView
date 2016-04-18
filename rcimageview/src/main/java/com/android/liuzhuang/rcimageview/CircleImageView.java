@@ -15,30 +15,29 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
- * 圆角图片
- * Created by liuzhuang on 16/4/12.
+ * Created by liuzhuang on 16/4/18.
  */
-public class RoundCornerImageView extends ImageView {
-    private float radius = 0;
+public class CircleImageView extends ImageView{
+    private int radius = -1;
 
-    public RoundCornerImageView(Context context) {
+    public CircleImageView(Context context) {
         super(context);
         init(context, null);
     }
 
-    public RoundCornerImageView(Context context, AttributeSet attrs) {
-        super(context, attrs, 0);
+    public CircleImageView(Context context, AttributeSet attrs) {
+        super(context, attrs);
         init(context, attrs);
     }
 
-    public RoundCornerImageView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public CircleImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundCornerImageView);
-        radius = typedArray.getDimensionPixelSize(R.styleable.RoundCornerImageView_rciv_radius, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView);
+        radius = typedArray.getDimensionPixelSize(R.styleable.CircleImageView_radius, -1);
         typedArray.recycle();
     }
 
@@ -70,8 +69,7 @@ public class RoundCornerImageView extends ImageView {
             paint.setAntiAlias(true);
             paint.setShader(shader);
 
-            RectF rect = new RectF(0.0f, 0.0f, width, height);
-            canvas.drawRoundRect(rect, radius, radius, paint);
+            canvas.drawCircle(width/ 2, height/2, radius == -1 ? Math.min(width, height) / 2 : radius, paint);
         } else {
             super.draw(canvas);
         }

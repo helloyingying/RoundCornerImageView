@@ -14,6 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@mipmap/demo"
+        android:id="@+id/rc_iv"
         android:scaleType="centerCrop"
         rc:rciv_radius="10dp"/>
+
+    <com.android.liuzhuang.rcimageview.CircleImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@mipmap/demo"
+        android:layout_below="@id/rc_iv"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"/>
 </RelativeLayout>

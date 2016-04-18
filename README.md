@@ -2,14 +2,14 @@
 
 A RoundCornerImageView like this:
 
-![rcimageview](./image/rcimageview.png)
+![rcimageview](./image/demo.png)
 
 # Installation
 
 gradle:
 
 ```
-compile 'com.liuzhuang.opensource:rcimageview:0.0.1'
+compile 'com.liuzhuang.opensource:rcimageview:0.0.2'
 ```
 
 or maven:
@@ -25,6 +25,14 @@ or maven:
 
 # Usage
 
+Add `xmlns` to XML file:
+
+```
+xmlns:rc="http://schemas.android.com/apk/res-auto"
+```
+
+## Round Corner ImageView
+
 ```
 <com.android.liuzhuang.rcimageview.RoundCornerImageView
     android:layout_width="match_parent"
@@ -33,6 +41,18 @@ or maven:
     android:scaleType="centerCrop"
     rc:rciv_radius="10dp"/>
 ```
+
+## Circle ImageView
+
+```
+<com.android.liuzhuang.rcimageview.CircleImageView
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:src="@mipmap/demo"
+    android:scaleType="centerCrop"/>
+```
+
+`CircleImageView` uses minimum of its width and height as radius by default. If you want to control the radius, use `rc:radius="64dp"`.
 
 # Advantages
 
